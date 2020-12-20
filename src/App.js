@@ -1,23 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import Canvas from "./components/Canvas";
+import Header from "./components/Header";
+import "./App.css";
+import { useState, useEffect } from "react";
+import characters from "./locationData/locationData";
 
 function App() {
+  const getMousePosition = (e) => {
+    const coords = [e.clientX, e.clientY];
+    console.log(document.getBoundingClientRect().width);
+    console.log(e.target.offsetLeft);
+    const checkIfWithinBox = (coords) => {
+      console.log(coords);
+
+      return characters.filter((char) => {
+        if (
+          coords[0] >= char.locationTopLeft[0] &&
+          coords[0] <= char.locationBottomRight[0] &&
+          coords[1] >= char.locationTopLeft[1] &&
+          coords[1] <= char.locationBottomRight[1]
+        ) {
+          return true;
+        } else {
+          return false;
+        }
+      });
+    };
+    checkIfWithinBox(coords);
+  };
+
+  useEffect(() => {
+    console.log("on mount");
+    document.addEventListener("click", getMousePosition, false);
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <Canvas />
     </div>
   );
 }
