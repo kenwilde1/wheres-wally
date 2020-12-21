@@ -5,20 +5,20 @@ import wizard from "../images/wizard.png";
 const characters = [
   {
     name: "Wally",
-    locationTopLeft: [50.74, 53.54],
-    locationBottomRight: [54.57, 60.52],
+    locationTopLeft: [508, 319],
+    locationBottomRight: [548, 383],
     image: wally,
   },
   {
     name: "Yllaw",
-    locationTopLeft: [26.59, 53.54],
-    locationBottomRight: [29.64, 62.24],
+    locationTopLeft: [223, 321],
+    locationBottomRight: [263, 400],
     image: odlaw,
   },
   {
     name: "Wizard",
-    locationTopLeft: [59.11, 53.31],
-    locationBottomRight: [62.68, 61.09],
+    locationTopLeft: [609, 322],
+    locationBottomRight: [648, 394],
     image: wizard,
   },
 ];

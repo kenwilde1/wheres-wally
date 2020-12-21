@@ -34,4 +34,6 @@
 .canvas-container img {
   border: 5px solid black;
   border-radius: 5px;
+  width: 1000px;
+  height: 700px;
 }

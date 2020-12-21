@@ -5,10 +5,11 @@ import { useState, useEffect } from "react";
 import characters from "./locationData/locationData";
 
 function App() {
+  const [discoveredChar, setDiscoverChar] = useState([]);
+  let hasWon = false;
   const getMousePosition = (e) => {
-    const coords = [e.clientX, e.clientY];
-    console.log(document.getBoundingClientRect().width);
-    console.log(e.target.offsetLeft);
+    const coords = [e.offsetX, e.offsetY];
+
     const checkIfWithinBox = (coords) => {
       console.log(coords);
 
@@ -19,9 +20,7 @@ function App() {
           coords[1] >= char.locationTopLeft[1] &&
           coords[1] <= char.locationBottomRight[1]
         ) {
-          return true;
-        } else {
-          return false;
+          setDiscoverChar((oldArray) => [...oldArray, [char.name]]);
         }
       });
     };
@@ -29,13 +28,12 @@ function App() {
   };
 
   useEffect(() => {
-    console.log("on mount");
     document.addEventListener("click", getMousePosition, false);
   }, []);
 
   return (
     <div className="App">
-      <Header />
+      <Header chars={discoveredChar} hasWon={hasWon} />
       <Canvas />
     </div>
   );
