@@ -1,18 +1,23 @@
 import { useState } from "react";
+import Timer from "./Timer";
+import MoreInfo from "./MoreInfo";
+import HighScores from "./HighScores";
 
-const Header = (props) => {
+const Header = ({ chars, isGameOver }) => {
   const [timerStarted, setTimerStarted] = useState(false);
-  const [time, setTime] = useState(0);
-
-  const { chars, hasWon } = props;
-
-  const timer = () => {
-    setTime(time + 1);
-  };
+  const [moreClicked, setMoreClicked] = useState(false);
+  const [scoresClicked, setScoresClicked] = useState(false);
 
   const toggleTimer = () => {
     setTimerStarted((currentTimer) => !currentTimer);
-    setInterval(timer, 1000);
+  };
+
+  const toggleMore = () => {
+    setMoreClicked((moreClicked) => !moreClicked);
+  };
+
+  const toggleScores = () => {
+    setScoresClicked((scoresClicked) => !scoresClicked);
   };
 
   const renderStartButton = () => {
@@ -23,8 +28,8 @@ const Header = (props) => {
     );
   };
 
-  const renderTimer = () => {
-    return <div className="timer">{time} seconds</div>;
+  const renderMoreInfo = () => {
+    return <button onClick={toggleMore}>Track Characters..</button>;
   };
 
   return (
@@ -33,14 +38,20 @@ const Header = (props) => {
         <h1>Where's Wally?</h1>
       </div>
       <div className="interact">
-        {timerStarted ? renderTimer() : renderStartButton()}
+        {timerStarted ? <Timer isGameOver={isGameOver} /> : renderStartButton()}
+        <button onClick={toggleScores}>High Scores</button>
+        {scoresClicked ? (
+          <HighScores toggleScores={toggleScores} />
+        ) : (
+          console.log(true)
+        )}
       </div>
-      <div className="more-info">
-        <ul>
-          {chars.map((char) => (
-            <li>{char}</li>
-          ))}
-        </ul>
+      <div className="more-info-container">
+        {moreClicked ? (
+          <MoreInfo chars={chars} toggleMore={toggleMore} />
+        ) : (
+          renderMoreInfo()
+        )}
       </div>
     </div>
   );

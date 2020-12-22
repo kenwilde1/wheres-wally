@@ -1,6 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;300&display=swap");
+
 * {
   margin: 0;
   padding: 0;
+  font-family: "Roboto Mono", monospace;
 }
 
 .header-container {
@@ -16,13 +19,23 @@
 
 .header-container div {
   width: 20vw;
-  border: 1px solid black;
   display: flex;
   justify-content: center;
 }
 
 .header-container h1 {
   color: white;
+}
+
+.interact {
+  width: 30vw;
+
+  display: flex;
+  gap: 3rem;
+}
+
+.timer {
+  max-width: 10vw;
 }
 
 .canvas-container {
@@ -32,8 +45,212 @@
 }
 
 .canvas-container img {
-  border: 5px solid black;
   border-radius: 5px;
   width: 1000px;
   height: 700px;
+}
+
+.more-info {
+  position: absolute;
+  top: 2vh;
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  flex-direction: column;
+  height: 25vh;
+  padding: 0 0.3vw 3vh 1vw;
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+    rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+    rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+  border-radius: 5px;
+}
+
+.more-info .exit-button {
+  display: flex;
+  justify-content: flex-end;
+  margin: 3vh 0 3vh 0;
+}
+
+.more-info .exit-button button {
+  cursor: pointer;
+}
+
+.more-info button {
+  height: 2vh;
+  width: 2vw;
+  color: red;
+  background: rgba(255, 255, 255, 0);
+  border: none;
+  outline: none;
+}
+
+.more-info ul {
+  display: flex;
+  flex-direction: column;
+
+  gap: 1rem;
+}
+
+.more-info li {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.more-info img {
+  width: 50px;
+  height: 50px;
+}
+
+.fa-times-circle {
+  color: red;
+}
+
+.fa-check-circle {
+  color: green;
+}
+
+.high-score-form {
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+    rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+    rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10px;
+  gap: 1rem;
+  padding: 10px;
+}
+
+.high-score-form form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+
+  width: 20vw;
+}
+
+.high-scores {
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+    rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+    rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10px;
+  gap: 1rem;
+  padding: 10px;
+}
+
+tr {
+  width: 20vw;
+  display: flex;
+  justify-content: space-around;
+}
+
+ol {
+  display: flex;
+  flex-direction: column;
+  width: 10vw;
+  gap: 1rem;
+}
+
+.score-list {
+  display: flex;
+  flex-direction: column;
+
+  gap: 1rem;
+  list-style: none;
+}
+
+.high-scores .exit-button {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.high-scores .exit-button button {
+  color: red;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.timer-text {
+  color: white;
+}
+
+/* Style Inputs and Buttons */
+
+.header-container button {
+  cursor: pointer;
+  border: 2px solid crimson;
+  border-radius: 5px;
+  padding: 0.5rem;
+  background: white;
+  outline: none;
+  color: black;
+  font-size: 0.9rem;
+}
+
+.header-container button:hover {
+  background: crimson;
+  color: white;
+  border: 2px solid white;
+}
+
+input {
+  padding: 5px;
+}
+
+.more-info .exit-button {
+  display: flex;
+  justify-content: flex-end;
+  margin: 3vh 0 3vh 0;
+}
+
+.more-info .exit-button button {
+  cursor: pointer;
+}
+
+.more-info button {
+  height: 2vh;
+  width: 2vw;
+  color: red;
+  background: rgba(255, 255, 255, 0);
+  border: none;
+  outline: none;
+}
+
+.more-info button:hover {
+  color: red;
+  background: rgba(255, 255, 255, 0);
+  border: none;
+  outline: none;
+}
+
+.high-scores .exit-button {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.high-scores .exit-button button {
+  color: red;
+  border: none;
+  background: none;
+  outline: none;
+  cursor: pointer;
 }
